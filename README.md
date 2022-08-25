@@ -3,11 +3,10 @@
 <TODO: complete this with an overview of your project>
 
 ## Project Plan
-<TODO: Project Plan
 
 * A link to a Trello board for the project: [Trello](https://trello.com/invite/b/ckkOihBH/ceca85a6406f4bec51c3c5743e7c00f1/project2)
 
-* A link to a spreadsheet that includes the original and final project plan> [Spreadsheet](https://docs.google.com/spreadsheets/d/15ubLyq8bP0X03wQ4vvEfCFMadQIrbONHOprxPECebUs/edit?usp=sharing)
+* A link to a spreadsheet that includes the original and final project plan: [Spreadsheet](https://docs.google.com/spreadsheets/d/15ubLyq8bP0X03wQ4vvEfCFMadQIrbONHOprxPECebUs/edit?usp=sharing)
 
 ## Instructions
 
