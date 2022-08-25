@@ -1,9 +1,5 @@
 Flask
 pandas
 scikit-learn
-importlib-metadata
-virtualenv
-argcomplete
-joblib
 pylint
 pytest
