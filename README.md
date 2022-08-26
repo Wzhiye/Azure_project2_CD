@@ -8,45 +8,100 @@ In this Project, we built a Python web application and deploying it in a CI/CD p
 
 * A link to a spreadsheet that includes the original and final project plan: [Spreadsheet](https://docs.google.com/spreadsheets/d/15ubLyq8bP0X03wQ4vvEfCFMadQIrbONHOprxPECebUs/edit?usp=sharing)
 
-## Instructions
-
-<TODO:  
-* Architectural Diagram
+## Architectural Diagram
 ![Project Architectural](screenshots/Screenshot_diagram.png "Project Architectural Diagram")
 
-<TODO:  Instructions for running the Python project.  How could a user with no context run this project without asking you for any help.  Include screenshots with explicit steps to create that work. Be sure to at least include the following screenshots:
-
+## Instructions
 * Project running on Azure App Service
 
+### Set up Azure Cloud Shell
 
-* Project cloned into Azure Cloud Shell
+We can use Azure Cloud Shell with ssh-key to clone this project Repo in GitHub, the screenshot is as below:
 
 ![Azure App Service screenshoot](screenshots/Screenshot_project_cloned.png "Project cloned")
 
-* Passing tests that are displayed after running the `make all` command from the `Makefile`
+### Run Makefile
 
-* Output of a test run
+We create a Makefile as below:
+```bash
+pip install --upgrade pip &&\
+  	pip install -r requirements.txt
+  
+test:
+  python -m pytest -vv test_hello.py
+
+lint:
+  	pylint --disable=R,C hello.py
+
+all: install lint test
+```
+Run command `make all` to execute Makefile.
+
+The output after execution of Makefile is:
+
 ![test output screenshoot](screenshots/Screenshot_makeall_result.png "output of make all")
 
-* Successful deploy of the project in Azure Pipelines.  [Note the official documentation should be referred to and double checked as you setup CI/CD](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops).
+### CI with GitHub Actions
+We can use GitHub Actions to make Continuous Integration and test the change events in our project, the configuration in yml file can be as below:
+```bash
+name: Python application test with Github Actions
 
-* Running Azure App Service from Azure Pipelines automatic deployment
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.5
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.5
+    - name: Install dependencies
+      run: |
+        make install
+    - name: Lint with pylint
+      run: |
+        make lint
+    - name: Test with pytest
+      run: |
+        make test
+```
+After run the test in GitHub Actions, we can get a output as below:
+
+![GitHub Actions screenshoot](screenshots/Screenshot_github_action.png " GitHub Actions")
+
+### Create a web app
+
+
+In this part, we need use Azure App Services to create a web app to apply Flask ML API and then deploy app in Azure Pipleine.
+
+To create the web app, we can use azure command：
+```bash
+az webapp up --name flaskwebappwen --resource-group azuredevops --runtime "PYTHON:3.7"
+```
+If create successfully, we can open the URL of web app and see this website:
+![web app screenshoot](screenshots/Screenshot_web.png "Website")
+
+### CD: Deployment in Azure Pipelines.  
+[The official documentation about CI/CD](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops).
+In Azure DevOps Organizations, we can create a new project for CI/CD pipeline. We need first set up a new service connetction in organizations setting. Then, we need configure the pipline with our Github and the configuration is saved in `azure-pipelines.yml`.
 
 ![Development screenshoot](screenshots/Screenshot_deployed.png "Development in Pipeline")
 
-* Successful prediction from deployed flask app in Azure Cloud Shell.  [Use this file as a template for the deployed prediction](https://github.com/udacity/nd082-Azure-Cloud-DevOps-Starter-Code/blob/master/C2-AgileDevelopmentwithAzure/project/starter_files/flask-sklearn/make_predict_azure_app.sh).
+We can test our deployed flask app in Azure Cloud Shell, run command:
+`./make_predit_azure_app.sh`
 
-The output should look similar to this:
+The output is as below:
 
 ![Prediction output screenshoot](screenshots/Screenshot_prediction.png "Prediction output")
 
-```bash
-udacity@Azure:~$ ./make_predict_azure_app.sh
-Port: 443
-{"prediction":[20.35373177134412]}
-```
+### Logs
+We can inspect the logs from running application, run Azure command:
+`az webapp log tail`
 
-* Output of streamed log files from deployed application
 ![Azure App Service log screenshoot](screenshots/Screenshot_logs.png "Streamed log output")
 
 ## Enhancements
