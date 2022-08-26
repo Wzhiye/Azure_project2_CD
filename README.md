@@ -26,13 +26,19 @@ In this Project, we built a Python web application and deploying it in a CI/CD p
 * Passing tests that are displayed after running the `make all` command from the `Makefile`
 
 * Output of a test run
+![test output screenshoot](screenshots/Screenshot_makeall_result.png "output of make all")
 
 * Successful deploy of the project in Azure Pipelines.  [Note the official documentation should be referred to and double checked as you setup CI/CD](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops).
 
 * Running Azure App Service from Azure Pipelines automatic deployment
 
+![Development screenshoot](screenshots/Screenshot_deployed.png "Development in Pipeline")
+
 * Successful prediction from deployed flask app in Azure Cloud Shell.  [Use this file as a template for the deployed prediction](https://github.com/udacity/nd082-Azure-Cloud-DevOps-Starter-Code/blob/master/C2-AgileDevelopmentwithAzure/project/starter_files/flask-sklearn/make_predict_azure_app.sh).
+
 The output should look similar to this:
+
+![Prediction output screenshoot](screenshots/Screenshot_prediction.png "Prediction output")
 
 ```bash
 udacity@Azure:~$ ./make_predict_azure_app.sh
@@ -41,12 +47,13 @@ Port: 443
 ```
 
 * Output of streamed log files from deployed application
-
-> 
+![Azure App Service log screenshoot](screenshots/Screenshot_logs.png "Streamed log output")
 
 ## Enhancements
 
-<TODO: A short description of how to improve the project in the future>
+* To improve the functions and UI on the web page, which can display forecast information and reference features, etc.
+* To set the parameters as customizable variables that can be changed by the customer according to actual needs.
+
 
 ## Demo 
 
