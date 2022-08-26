@@ -1,6 +1,6 @@
 # Overview
 
-<TODO: complete this with an overview of your project>
+In this Project, we built a Python web application and deploying it in a CI/CD pipeline using Azure App Services. The web application is a Python-based machine learning application using the Flask web framework. In this application, a pre-trained sklearn model is appiled to predict housing prices in Boston according to several features, such as average rooms in a home and data about highway access, teacher-to-pupil ratios, and so on. In order to create this CI/CD pipeline, the project Github repository is connected to Azure and Github action is used to perform an initial lint, test and install cycle. Then, Continuous Delivery for Azure App Service is implemented by Azure Pipelines.
 
 ## Project Plan
 
@@ -11,7 +11,8 @@
 ## Instructions
 
 <TODO:  
-* Architectural Diagram (Shows how key parts of the system work)>
+* Architectural Diagram
+![Project Architectural](screenshots/Screenshot_diagram.png "Project Architectural Diagram")
 
 <TODO:  Instructions for running the Python project.  How could a user with no context run this project without asking you for any help.  Include screenshots with explicit steps to create that work. Be sure to at least include the following screenshots:
 
