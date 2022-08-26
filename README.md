@@ -20,7 +20,7 @@
 
 * Project cloned into Azure Cloud Shell
 
-![Azure App Service screenshoot](Screenshot_project_cloned.png "Project cloned")
+![Azure App Service screenshoot](screenshots/Screenshot_project_cloned.png "Project cloned")
 
 * Passing tests that are displayed after running the `make all` command from the `Makefile`
 
