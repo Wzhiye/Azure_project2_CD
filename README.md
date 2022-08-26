@@ -1,4 +1,5 @@
 # Overview
+[![Python application test with Github Actions](https://github.com/Wzhiye/Azure_project2_CD/actions/workflows/pythonapp.yml/badge.svg)](https://github.com/Wzhiye/Azure_project2_CD/actions/workflows/pythonapp.yml)
 
 In this Project, we built a Python web application and deploying it in a CI/CD pipeline using Azure App Services. The web application is a Python-based machine learning application using the Flask web framework. In this application, a pre-trained sklearn model is appiled to predict housing prices in Boston according to several features, such as average rooms in a home and data about highway access, teacher-to-pupil ratios, and so on. In order to create this CI/CD pipeline, the project Github repository is connected to Azure and Github action is used to perform an initial lint, test and install cycle. Then, Continuous Delivery for Azure App Service is implemented by Azure Pipelines.
 
