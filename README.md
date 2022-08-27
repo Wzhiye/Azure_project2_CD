@@ -105,6 +105,14 @@ We can inspect the logs from running application, run Azure command:
 
 ![Azure App Service log screenshoot](screenshots/Screenshot_logs.png "Streamed log output")
 
+### Performance validation of application using locust:
+Run command:
+```bash
+locust -f locustfile.py --headless -u 20 -r 5 -t 20s
+```
+
+![Locust screenshoot](screenshots/Screenshot_locust.png "Locust output")
+
 ## Enhancements
 
 * To improve the functions and UI on the web page, which can display forecast information and reference features, etc.
